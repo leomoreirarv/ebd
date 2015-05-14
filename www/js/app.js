@@ -19,72 +19,37 @@ angular.module('ebd', ['ionic'])
 })
 
 .config(function($stateProvider, $urlRouterProvider){
+  
   $stateProvider.state('ebd',{
-                       url: '/ebd',
-                           views:{
-                            'conteudo':{   
-                                templateUrl: 'templates/home.html'
-                            }    
-                           }   
-                       })
+                      url: '/ebd',
+                      abstract: true,
+                      templateUrl: 'templates/home.html',
+                      controlller: 'HomeController'
+                        })
   
   $stateProvider.state('ebd.alunos',{
                        url: '/alunos',
-                           views:{
-                            'conteudo':{   
-                                templateUrl: 'templates/alunos.html'
-                            }    
-                           }   
+                       templateUrl: 'templates/alunos.html',
+                       controller: 'AlunosController'
                        })
   
   $stateProvider.state('ebd.classes',{
                        url: '/classes',
-                           views:{
-                            'conteudo':{   
-                                templateUrl: 'templates/classes.html'
-                            }    
-                           }   
+                       templateUrl: 'templates/classes.html',
+                       controller: 'ClassesController'
                        })
   
   $stateProvider.state('ebd.mensagens',{
                        url: '/mensagens',
-                           views:{
-                            'conteudo':{   
-                                templateUrl: 'templates/mensagens.html'
-                            }    
-                           }   
+                       templateUrl: 'templates/mensagens.html',
+                       controller: 'MensagensController'
                        })
   
   $stateProvider.state('ebd.relatorios',{
                        url: '/relatorios',
-                           views:{
-                            'conteudo':{   
-                                templateUrl: 'templates/relatorios.html'
-                            }    
-                           }   
-                       })
+                       templateUrl: 'templates/relatorios.html',
+                       controller: 'RelatoriosController'
+                       });
   
-  
-  /*
-  $stateProvider.state('ebd.alunos',{
-                       url: 'ebd/alunos',
-                       templateUrl: 'templates/alunos.html'
-                       })
-  
-  $stateProvider.state('ebd.classes',{
-                       url: 'ebd/classes',
-                       templateUrl: 'templates/classes.html'
-                       })
-  
-  $stateProvider.state('ebd.mensagens',{
-                       url: 'ebd/mensagens',
-                       templateUrl: 'templates/mensagens.html'
-                       })
-  
-  $stateProvider.state('ebd.relatorios',{
-                       url: 'ebd/relatorios',
-                       templateUrl: 'templates/relatorios.html'
-                       })
-  */
   $urlRouterProvider.otherwise('/ebd')
-})
+});
